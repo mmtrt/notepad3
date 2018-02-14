@@ -35,7 +35,7 @@ Name=notepad3
 GenericName=Text Editor
 Comment=Simple and free source code editor.
 Encoding=UTF-8
-Version=3.18.131.862
+Version=
 Type=Application
 Terminal=false
 Icon=${SNAP}/usr/share/pixmaps/notepad3.png
@@ -44,6 +44,7 @@ StartupWMClass=notepad3.exe
 Categories=Utility;TextEditor
 MimeType=text/plain;text/css;text/html;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-java;text/x-makefile;text/x-python;text/x-sh
 EOF1
+sed -i -e 's|Version=|Version='"$ver"'|g' notepad3.desktop
 }
 
 dlnp3
