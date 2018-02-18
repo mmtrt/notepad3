@@ -31,7 +31,7 @@ mknp3 () {
 mkdsk () {
 cat > notepad3.desktop <<'EOF1'
 [Desktop Entry]
-Name=notepad3
+Name=Notepad3
 GenericName=Text Editor
 Comment=Simple and free source code editor.
 Encoding=UTF-8
