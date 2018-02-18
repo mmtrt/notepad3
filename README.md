@@ -16,7 +16,7 @@ distributions.</p>
 ## Install
 
     sudo snap install notepad3 --edge
-    sudo snap connect notepad3:process-control core:process-control
+    sudo snap connect notepad3:process-control
 
 ([Don't have snapd installed?](https://snapcraft.io/docs/core/install))
 
