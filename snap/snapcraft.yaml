@@ -1,5 +1,6 @@
 name: notepad3
-version: 3.18.131.862
+version: latest
+version-script: cat $SNAPCRAFT_STAGE/version
 summary: notepad3 is a fast and light-weight text editor.
 description: |
  notepad3 is a fast and light-weight Scintilla-based text editor with syntax highlighting. It has a small memory footprint, but is powerful enough to handle most programming jobs.
@@ -65,6 +66,9 @@ parts:
       cp -r $ws/* $spi/ && rm -r $spi/opt $docs $mans $spi/share/wine/fonts
 
   notepad3:
+    install: |
+      ver=$(wget https://www.rizonesoft.com/downloads/notepad3 -q -S -O - 2>&1 | grep '<td>3.' | sed 's|<td>||;s|</td>||')
+      echo $ver > $SNAPCRAFT_STAGE/version
     plugin: dump
     source: ./scripts
     prepare: ./dl_np3
