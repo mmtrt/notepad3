@@ -59,7 +59,7 @@ LongLinesLimit=80
 LongLineMode=1
 LoadASCIIasUTF8=0
 FixLineEndings=0
-ToolbarButtons=1 2 4 3 0 5 6 0 7 8 9 0 10 11 0 12 0 24 0 22 23 0 13 14 0 15 0 25 0 17
+ToolbarButtons=
 [Settings2]
 ;AutoReloadTimeout=2000
 ;DateTimeLong=
@@ -96,6 +96,7 @@ WebTemplate2=https://en.wikipedia.org/w/index.php?search=%s
 ;UpdateDelayHyperlinkStyling=100
 ;UpdateDelayMarkAllCoccurrences=50
 ;CurrentLineVerticalSlop=5
+;UpdateChecker.exe=wyUpdate.exe
 [Toolbar Images]
 BitmapDefault=Toolbar.bmp
 BitmapHot=ToolbarHot.bmp
@@ -103,7 +104,7 @@ BitmapDisabled=ToolbarDisabled.bmp
 [Toolbar Labels]
 ;01=New
 ;02=Open
-;03=metapath
+;03=Browse
 ;04=Save
 ;05=Undo
 ;06=Redo
@@ -116,15 +117,16 @@ BitmapDisabled=ToolbarDisabled.bmp
 ;13=Zoom In
 ;14=Zoom Out
 ;15=Scheme
-;16=Config
+;16=Customize Schemes
 ;17=Exit
 ;18=Save As
 ;19=Save Copy
-;20=Copy All
-;21=Clear
-;22=Print
-;23=Favorites
-;24=Add
+;20=Delete
+;21=Print
+;22=Favorites
+;23=Add to Favorites
+;24=Toggle All Folds
+;25=Execute Document
 [Custom Colors]
 [Styles]
 Use2ndDefaultStyle=0
