@@ -16,7 +16,10 @@ distributions.</p>
 ## Install
 
     sudo snap install notepad3 --edge
+    sudo snap connect notepad3:hardware-observe
+    sudo snap connect notepad3:removable-media
     sudo snap connect notepad3:process-control
+    sudo snap connect notepad3:cups-control
 
 ([Don't have snapd installed?](https://snapcraft.io/docs/core/install))
 
