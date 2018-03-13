@@ -25,7 +25,7 @@ mknp3 () {
     mv usr/share/notepad3/Notepad3.exe usr/share/notepad3/notepad3.exe
     find "usr" -type d -execdir chmod 755 {} +
     mkdir -p usr/share/pixmaps && mkdir -p usr/share/applications && mkdir bin
-    wrestool -x -t3 -n9 usr/share/notepad3/notepad3.exe --raw > usr/share/pixmaps/notepad3.png
+    wrestool -x -t3 -n1 usr/share/notepad3/notepad3.exe --raw > usr/share/pixmaps/notepad3.png
 }
 
 mkdsk () {
