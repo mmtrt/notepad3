@@ -50,5 +50,4 @@ sed -i -e 's|Version=|Version='"$ver"'|g' notepad3.desktop
 dlnp3
 mknp3
 mkdsk
-mv notepad3 bin && mv notepad3.desktop usr/share/applications
-rm Notepad3*.zip dl_np3
+mv notepad3 bin && mv notepad3.desktop usr/share/applications && cp -R -p {bin,usr,share} $SNAPCRAFT_PART_INSTALL
