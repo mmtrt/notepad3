@@ -10,7 +10,7 @@
 #
 
 dlnp3 () {
-    wget --accept "*.zip" --content-disposition --trust-server-names "https://www.rizonesoft.com/download/3943/" &> /dev/null
+    wget --accept "*.zip" --content-disposition "https://www.rizonesoft.com/download/3943/" &> /dev/null
     for fnts in andalemo.ttf arialbd.ttf arialbi.ttf ariali.ttf arial.ttf ariblk.ttf comicbd.ttf comic.ttf courbd.ttf courbi.ttf couri.ttf cour.ttf georgiab.ttf georgiai.ttf georgia.ttf georgiaz.ttf impact.ttf l_10646.ttf lucon.ttf micross.ttf symbol.ttf tahomabd.ttf tahoma.ttf timesbd.ttf timesbi.ttf timesi.ttf times.ttf trebucbd.ttf trebucbi.ttf trebucit.ttf trebuc.ttf verdanab.ttf verdanai.ttf verdana.ttf verdanaz.ttf webdings.ttf wingding.ttf
     do
     wget https://github.com/caarlos0-graveyard/msfonts/blob/master/fonts/$fnts?raw=true -P share/wine/fonts &> /dev/null
