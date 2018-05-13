@@ -21,7 +21,7 @@ dlnp3 () {
 mknp3 () {
     ver="$(wget https://www.rizonesoft.com/downloads/notepad3 -q -S -O - 2>&1 | grep 'Notepad3_' | sed '1d;3,5d;s|Notepad3_||g;s|.zip||g' | awk '{print $1}')"
     7z x Notepad3_${ver}.zip &> /dev/null
-    7z x Notepad3_${ver}_x86.zip -x'!Changes.txt' -x'!License.txt' -x'!Readme.txt' -x'!Notepad3.ini' -x'!client.wyc' -x'!wyUpdate.exe' -o"usr/share/notepad3" &> /dev/null
+    7z x Notepad3_${ver}_x86.zip -x'!Changes.txt' -x'!License.txt' -x'!Readme.txt' -o"usr/share/notepad3" &> /dev/null
     mv usr/share/notepad3/Notepad3.exe usr/share/notepad3/notepad3.exe
     find "usr" -type d -execdir chmod 755 {} +
     mkdir -p usr/share/pixmaps && mkdir -p usr/share/applications && mkdir bin
