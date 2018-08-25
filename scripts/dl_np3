@@ -11,14 +11,10 @@
 
 dlnp3 () {
     wget --accept "*.zip" --content-disposition "https://www.rizonesoft.com/download/3943/" &> /dev/null
-    for fnts in andalemo.ttf arialbd.ttf arialbi.ttf ariali.ttf arial.ttf ariblk.ttf comicbd.ttf comic.ttf courbd.ttf courbi.ttf couri.ttf cour.ttf georgiab.ttf georgiai.ttf georgia.ttf georgiaz.ttf impact.ttf l_10646.ttf lucon.ttf micross.ttf symbol.ttf tahomabd.ttf tahoma.ttf timesbd.ttf timesbi.ttf timesi.ttf times.ttf trebucbd.ttf trebucbi.ttf trebucit.ttf trebuc.ttf verdanab.ttf verdanai.ttf verdana.ttf verdanaz.ttf webdings.ttf wingding.ttf
-    do
-    wget https://github.com/caarlos0-graveyard/msfonts/blob/master/fonts/$fnts?raw=true -P share/wine/fonts &> /dev/null
-    mv share/wine/fonts/$fnts?raw=true share/wine/fonts/$fnts
-    done
 }
 
 mknp3 () {
+    mkdir -p usr/share && mkdir wine-platform
     ver="$(wget https://www.rizonesoft.com/downloads/notepad3 -q -S -O - 2>&1 | grep 'Notepad3_' | sed '1d;3,7d;s|Notepad3_||g;s|.zip||g' | awk '{print $1}')"
     7z x Notepad3_${ver}.zip &> /dev/null
     7z x Notepad3_${ver}_x86.zip -x'!Changes.txt' -x'!License.txt' -x'!Readme.txt' -o"usr/share/notepad3" &> /dev/null
@@ -50,4 +46,4 @@ sed -i -e 's|Version=|Version='"$ver"'|g' notepad3.desktop
 dlnp3
 mknp3
 mkdsk
-mv notepad3 bin && mv notepad3.desktop usr/share/applications && cp -R -p {bin,usr,share} $SNAPCRAFT_PART_INSTALL
+mv notepad3 bin && mv notepad3.desktop usr/share/applications && cp -R -p {bin,usr,wine-platform} $SNAPCRAFT_PART_INSTALL
