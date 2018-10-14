@@ -31,7 +31,7 @@ parts:
     override-build: |
       snapcraftctl build
       set -ex
-      ver=$(wget https://www.rizonesoft.com/downloads/notepad3 -q -S -O - 2>&1 | grep 'Notepad3_' | sed '1d;3,7d;s|Notepad3_||g;s|.zip||g' | awk '{print $1}')
+      ver=$(wget https://www.rizonesoft.com/downloads/notepad3 -q -S -O - 2>&1 | grep 'Notepad3_' | sed '1d;3,7d;s|Notepad3_||g;s|.zip||g' | awk '{print $1}' | head -n1)
       echo $ver > $SNAPCRAFT_STAGE/version
       ./dl_np3
     stage:
