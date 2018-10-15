@@ -10,12 +10,12 @@
 #
 
 dlnp3 () {
-    wget --accept "*.zip" --content-disposition "https://www.rizonesoft.com/download/3943/" &> /dev/null
+    ver="$(wget https://www.rizonesoft.com/downloads/notepad3 -q -S -O - 2>&1 | grep 'Notepad3_' | sed '1d;3,7d;s|Notepad3_||g;s|.zip||g' | awk '{print $1}' | head -n1)"
+    wget --accept "*.zip" "https://github.com/rizonesoft/Notepad3/releases/download/RELEASE_${ver}/Notepad3_${ver}.zip" &> /dev/null
 }
 
 mknp3 () {
     mkdir -p usr/share && mkdir wine-platform
-    ver="$(wget https://www.rizonesoft.com/downloads/notepad3 -q -S -O - 2>&1 | grep 'Notepad3_' | sed '1d;3,7d;s|Notepad3_||g;s|.zip||g' | awk '{print $1}' | head -n1)"
     7z x Notepad3_${ver}.zip &> /dev/null
     7z x Notepad3_${ver}_x86.zip -x'!Changes.txt' -x'!License.txt' -x'!Readme.txt' -o"usr/share/notepad3" &> /dev/null
     mv usr/share/notepad3/Notepad3.exe usr/share/notepad3/notepad3.exe
