@@ -13,11 +13,10 @@ architectures:
 base: core18
 
 plugs:
-  wine-platform-plug:
-    content: wine-base-stable
+  wine-base-stable:
     interface: content
     target: $SNAP/wine-platform
-    default-provider: wine-platform
+    default-provider: wine-platform:wine-base-stable
   icon-themes:
     interface: content
     target: $SNAP/data-dir/icons
