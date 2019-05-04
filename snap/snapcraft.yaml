@@ -21,7 +21,7 @@ plugs:
   icon-themes:
     interface: content
     target: $SNAP/data-dir/icons
-    default-provider: gtk-common-themes
+    default-provider: gtk-common-themes:icon-themes
 
 apps:
   notepad3:
