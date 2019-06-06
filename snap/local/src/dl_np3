@@ -15,7 +15,7 @@ dlnp3 () {
 }
 
 mknp3 () {
-    mkdir ./{wine-platform,bin} && mkdir -p usr/share/{pixmaps,applications}
+    mkdir -p ./{wine-runtime,wine-platform,bin} && mkdir -p usr/share/{pixmaps,applications}
     ARCHITECTURE=$(dpkg --print-architecture)
     unzip Notepad3_${ver}.zip &> /dev/null
     if [ "${ARCHITECTURE}" = "amd64" ]; then
@@ -52,4 +52,4 @@ sed -i -e 's|Version=|Version='"$ver"'|g' notepad3.desktop
 dlnp3
 mknp3
 mkdsk
-mv notepad3 bin && mv notepad3.desktop usr/share/applications && mv notepad3.png usr/share/pixmaps && cp -R -p {bin,usr,wine-platform} $SNAPCRAFT_PART_INSTALL
+mv notepad3 bin && mv notepad3.desktop usr/share/applications && mv notepad3.png usr/share/pixmaps && cp -R -p {bin,usr,wine-runtime,wine-platform} $SNAPCRAFT_PART_INSTALL
