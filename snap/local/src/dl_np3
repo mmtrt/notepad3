@@ -10,7 +10,7 @@
 #
 
 dlnp3 () {
-    ver="$(wget https://www.rizonesoft.com/downloads/notepad3 -q -S -O - 2>&1 | grep 'Notepad3_' | sed '1d;3,7d;s|Notepad3_||g;s|.zip||g' | awk '{print $1}' | head -n1)"
+    ver="$(wget https://www.rizonesoft.com/downloads/notepad3 -q -S -O - 2>&1 | grep 'Notepad3_' | sed '1d;3,7d;s|_| |g' | awk '{print $2}' | head -n1)"
     wget --accept "*.zip" "https://github.com/rizonesoft/Notepad3/releases/download/RELEASE_${ver}/Notepad3_${ver}.zip" &> /dev/null
 }
 
