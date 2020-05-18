@@ -323,6 +323,7 @@ find "$progHome/" -type l -delete &>/dev/null
 cp -urs "$progRealPath/"* "$progHome" &>/dev/null
 
 if [ ! -d $WINEPREFIX ]; then
+cp "$progRealPath/*.ini" "$progHome/"
 # link ttf & ttc fonts from root to wineprefix
 ensure_dir_exists $WINEPREFIX/drive_c/windows/Fonts
 find /usr/share/fonts/ -type f \( -name "*.ttf" -o -name "*.ttc" \) -exec ln -vs "{}" $WINEPREFIX/drive_c/windows/Fonts/ \; &>/dev/null
