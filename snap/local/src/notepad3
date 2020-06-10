@@ -322,6 +322,11 @@ find "$progHome/" -type l -delete &>/dev/null
 # Update existing symlinks, add new symlinks
 cp -urs "$progRealPath/"* "$progHome" &>/dev/null
 
+chklnk=$(find $progHome/ -type l -name "*.ini" | wc -l)
+if [ $chklnk -ge 1 ]; then
+rm "$progHome/minipath.ini"; rm "$progHome/Notepad3.ini"; rm "$progHome/themes/Dark.ini"; rm "$progHome/themes/Obsidian.ini"; find "$progRealPath/" -maxdepth 1 -type f -name "*.ini" -exec cp {} "$progHome/" \; && find "$progRealPath/themes/" -type f -name "*.ini" 2>/dev/null -exec cp {} "$progHome/themes/" \;
+fi
+
 if [ ! -d $WINEPREFIX ]; then
 # link ttf & ttc fonts from root to wineprefix
 ensure_dir_exists $WINEPREFIX/drive_c/windows/Fonts
