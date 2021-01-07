@@ -80,7 +80,6 @@ parts:
       - usr
       - wine-platform
       - wine-runtime
-      - winedata
       - sommelier
     build-packages: [wget, unzip]
   # The sommelier script helps you snap Windows applications using Wine. It
