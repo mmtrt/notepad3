@@ -10,8 +10,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        repo_token: ${{ secrets.PAT }}
+      env:
+        token: ${{ secrets.PAT }}
     - name: get-latest-version
       run: |
         VERSION="$(wget 2>/dev/null https://www.rizonesoft.com/downloads/notepad3 -qSO- | grep 'Notepad3_' | sed '1d;3,7d;s|_| |g' | awk '{print $2}' | head -n1)"
@@ -24,4 +24,5 @@ jobs:
       with:
         commit_message: Trigger build for new version
         branch: master
-        repo_token: ${{ secrets.PAT }}
+      env:
+        token: ${{ secrets.PAT }}
