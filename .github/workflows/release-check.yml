@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      env:
+      with:
         token: ${{ secrets.PAT }}
     - name: get-latest-version
       run: |
@@ -24,5 +24,3 @@ jobs:
       with:
         commit_message: Trigger build for new version
         branch: master
-      env:
-        token: ${{ secrets.PAT }}
