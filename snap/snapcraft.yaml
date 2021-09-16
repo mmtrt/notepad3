@@ -1,5 +1,5 @@
 name: notepad3
-title: Notepad3 (Wine)
+title: Notepad3 (WINE)
 summary: notepad3 is a fast and light-weight text editor.
 description: |
  notepad3 is a fast and light-weight Scintilla-based text editor with syntax highlighting. It has a small memory footprint, but is powerful enough to handle most programming jobs.
@@ -18,21 +18,20 @@ plugs:
     interface: content
     target: $SNAP/wine-runtime
     default-provider: wine-platform-runtime
-  wine-5-stable:
+  wine-6-stable:
     interface: content
     target: $SNAP/wine-platform
-    default-provider: wine-platform-5-stable
+    default-provider: wine-platform-6-stable
 
 environment:
   WINEDLLOVERRIDES: "mscoree,mshtml="         # Prevent pop-ups about Wine Mono and Wine Gecko
+  RUN_EXE: "$SNAP_USER_DATA/notepad3/notepad3.exe"
+  SOMMELIER_KEEP_CWD: "1" # Don't change the working directory so relative paths still work
 
 apps:
   notepad3:
     extensions: [ gnome-3-28 ]
     command: bin/sommelier run-exe
-    environment:
-      RUN_EXE: "$SNAP_USER_DATA/notepad3/notepad3.exe"
-      SOMMELIER_KEEP_CWD: 1  # Don't change the working directory so relative paths still work
     plugs:
       - opengl
       - home
