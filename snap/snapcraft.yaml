@@ -92,6 +92,6 @@ parts:
 
   fix-up-font:
     plugin: nil
-    after: [sommelier]
+    after: [gnome-3-28-extension]
     override-build: |
-      sed -i '/snap-package/,+1d' $SNAPCRAFT_STAGE/snap/command-chain/desktop-launch
+      sed -i '/snap-package/,+1d' $SNAPCRAFT_PART_INSTALL/snap/command-chain/desktop-launch
