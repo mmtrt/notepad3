@@ -66,12 +66,12 @@ apps:
     plugs:
       - network
 
-  hooks:
-    configure:
-      plugs:
-        - desktop
-        - network-bind
-        - x11
+hooks:
+  configure:
+    plugs:
+      - desktop
+      - network-bind
+      - x11
 
 parts:
   notepad3:
