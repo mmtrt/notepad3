@@ -89,3 +89,9 @@ parts:
     plugin: make
     source: https://github.com/mmtrt/sommelier-core.git
     source-branch: "tmp"
+
+  fix-up-font:
+    plugin: nil
+    after: [sommelier]
+    override-build: |
+      sed -i '/snap-package/,+1d' $SNAPCRAFT_STAGE/snap/command-chain/desktop-launch
