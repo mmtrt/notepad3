@@ -96,9 +96,3 @@ parts:
     plugin: make
     source: https://github.com/mmtrt/sommelier-core.git
     source-branch: "tmp"
-
-  hooks:
-    source: snap/local/hooks
-    plugin: dump
-    organize:
-      configure: snap/hooks/configure
