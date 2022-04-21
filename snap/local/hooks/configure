@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+export WINEPREFIX="${WINEPREFIX}"
+
+sommelier wineboot -i
