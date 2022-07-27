@@ -31,7 +31,7 @@ environment:
 
 apps:
   notepad3:
-    extensions: [ gnome-42-2204 ]
+    extensions: [ gnome ]
     command: bin/sommelier run-exe
     plugs:
       - opengl
@@ -48,7 +48,7 @@ apps:
   # For example, users can configure the wine environment of this snap
   # by running `myapp.wine winecfg`.
   wine:
-    extensions: [ gnome-42-2204 ]
+    extensions: [ gnome ]
     command: bin/sommelier
     plugs:
       - home
@@ -60,7 +60,7 @@ apps:
   # The winetricks command can be used to run winetricks inside the wine
   # environment that this snap uses.
   winetricks:
-    extensions: [ gnome-42-2204 ]
+    extensions: [ gnome ]
     command: bin/sommelier winetricks
     plugs:
       - network
