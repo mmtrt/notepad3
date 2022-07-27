@@ -82,7 +82,7 @@ parts:
       - wine-runtime
       - sommelier
     build-packages: [wget, unzip]
-    build-snaps: [gnome-42-2204-sdk/latest/edge, gnome-42-2204/latest/edge]
+    build-snaps: [gnome-42-2204-sdk/latest/edge, gnome-42-2204/latest/edge, snapcraft/latest/edge]
   # The sommelier script helps you snap Windows applications using Wine. It
   # initializes and configures Wine and installs the Windows application.
   sommelier:
