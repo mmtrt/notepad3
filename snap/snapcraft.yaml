@@ -9,19 +9,18 @@ confinement: strict
 grade: stable
 architectures:
   - build-on: amd64
-  - build-on: i386
-base: core18
+base: core22
 compression: lzo
 
 plugs:
-  wine-runtime:
+  wine-runtime-c22:
     interface: content
     target: $SNAP/wine-runtime
-    default-provider: wine-platform-runtime
-  wine-6-stable:
+    default-provider: wine-platform-runtime-core22
+  wine-7-stable-c22:
     interface: content
     target: $SNAP/wine-platform
-    default-provider: wine-platform-6-stable
+    default-provider: wine-platform-7-stable-core22
 
 environment:
   WINEDLLOVERRIDES: "mscoree,mshtml=" # Prevent pop-ups about Wine Mono and Wine Gecko
@@ -32,7 +31,7 @@ environment:
 
 apps:
   notepad3:
-    extensions: [ gnome-3-28 ]
+    extensions: [ gnome-42-2204 ]
     command: bin/sommelier run-exe
     plugs:
       - opengl
@@ -49,7 +48,7 @@ apps:
   # For example, users can configure the wine environment of this snap
   # by running `myapp.wine winecfg`.
   wine:
-    extensions: [ gnome-3-28 ]
+    extensions: [ gnome-42-2204 ]
     command: bin/sommelier
     plugs:
       - home
@@ -61,7 +60,7 @@ apps:
   # The winetricks command can be used to run winetricks inside the wine
   # environment that this snap uses.
   winetricks:
-    extensions: [ gnome-3-28 ]
+    extensions: [ gnome-42-2204 ]
     command: bin/sommelier winetricks
     plugs:
       - network
@@ -92,6 +91,6 @@ parts:
 
   fix-up-font:
     plugin: nil
-    after: [gnome-3-28-extension]
+    after: [gnome-42-2204-extension]
     override-prime: |
       sed -i '/snap-package/,+1d' $SNAPCRAFT_PRIME/snap/command-chain/desktop-launch
