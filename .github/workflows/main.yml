@@ -24,10 +24,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        run: |
+            sudo snap install snapcraft --edge
       - uses: snapcore/action-build@v1
         id: build
-      run: |
-        sudo snap refresh snapcraft --edge
 
       - uses: snapcore/action-publish@v1
         env:
