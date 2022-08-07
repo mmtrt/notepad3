@@ -31,7 +31,7 @@ environment:
 
 apps:
   notepad3:
-    extensions: [ gnome-42-2204 ]
+    extensions: [ gnome ]
     command: bin/sommelier run-exe
     plugs:
       - opengl
@@ -48,7 +48,7 @@ apps:
   # For example, users can configure the wine environment of this snap
   # by running `myapp.wine winecfg`.
   wine:
-    extensions: [ gnome-42-2204 ]
+    extensions: [ gnome ]
     command: bin/sommelier
     plugs:
       - home
@@ -60,7 +60,7 @@ apps:
   # The winetricks command can be used to run winetricks inside the wine
   # environment that this snap uses.
   winetricks:
-    extensions: [ gnome-42-2204 ]
+    extensions: [ gnome ]
     command: bin/sommelier winetricks
     plugs:
       - network
@@ -82,7 +82,6 @@ parts:
       - wine-runtime
       - sommelier
     build-packages: [wget, unzip]
-    build-snaps: [gnome-42-2204-sdk/latest/edge, gnome-42-2204/latest/edge, snapcraft/latest/edge]
   # The sommelier script helps you snap Windows applications using Wine. It
   # initializes and configures Wine and installs the Windows application.
   sommelier:
@@ -92,6 +91,6 @@ parts:
 
   fix-up-font:
     plugin: nil
-    after: [gnome-42-2204-extension]
+    after: [gnome]
     override-prime: |
       sed -i '/snap-package/,+1d' $SNAPCRAFT_PRIME/snap/command-chain/desktop-launch
