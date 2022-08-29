@@ -87,7 +87,7 @@ parts:
   sommelier:
     plugin: make
     source: https://github.com/mmtrt/sommelier-core.git
-    source-branch: "tmp"
+    source-branch: "tmp-core22"
 
   fix-up-font:
     plugin: nil
