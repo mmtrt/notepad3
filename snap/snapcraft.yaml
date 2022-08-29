@@ -70,7 +70,7 @@ parts:
     plugin: nil
     source: ./snap/local/src
     override-build: |
-      snapcraftctl build
+      craftctl default
       set -ex
       #ver=$(wget https://www.rizonesoft.com/downloads/notepad3 -q -S -O - 2>&1 | grep 'Notepad3_' | sed '1d;3,7d;s|_| |g' | awk '{print $2}' | head -n1)
       snapcraftctl set-version "5.21.905.1"
@@ -91,6 +91,6 @@ parts:
 
   fix-up-font:
     plugin: nil
-    after: [gnome]
+    after: [gnome/sdk]
     override-prime: |
       sed -i '/snap-package/,+1d' $SNAPCRAFT_PRIME/snap/command-chain/desktop-launch
