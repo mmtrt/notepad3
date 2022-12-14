@@ -13,6 +13,27 @@ base: core22
 compression: lzo
 
 plugs:
+  gaming-mesa:
+    interface: content
+    target: $SNAP/graphics
+    default-provider: gaming-graphics-core22
+  gtk-3-themes:
+    interface: content
+    target: $SNAP/share/themes
+    default-provider: gtk-common-themes
+  icon-themes:
+    interface: content
+    target: $SNAP/share/icons
+    default-provider: gtk-common-themes
+  sound-themes:
+    interface: content
+    target: $SNAP/share/sounds
+    default-provider: gtk-common-themes
+  desktop:
+    mount-host-font-cache: false
+  shmem:
+    interface: shared-memory
+    private: true
   wine-runtime-c22:
     interface: content
     target: $SNAP/wine-runtime
@@ -28,10 +49,13 @@ environment:
   SOMMELIER_KEEP_CWD: "1" # Don't change the working directory so relative paths still work
   NO_AT_BRIDGE: "1" # Fix yad error Failed to connect to socket /tmp/dbus-xxx: No such file or directory
   DISABLE_WAYLAND: "1" # Fix gtk decoration under wayland session
+  HOME: $SNAP_USER_COMMON
+  #LIBGL_DEBUG: verbose
+  TMPDIR: $XDG_RUNTIME_DIR
 
 apps:
   notepad3:
-    extensions: [ gnome ]
+    command-chain: [bin/desktop-launch]
     command: bin/sommelier run-exe
     plugs:
       - opengl
@@ -48,7 +72,7 @@ apps:
   # For example, users can configure the wine environment of this snap
   # by running `myapp.wine winecfg`.
   wine:
-    extensions: [ gnome ]
+    command-chain: [bin/desktop-launch]
     command: bin/sommelier
     plugs:
       - home
@@ -60,7 +84,7 @@ apps:
   # The winetricks command can be used to run winetricks inside the wine
   # environment that this snap uses.
   winetricks:
-    extensions: [ gnome ]
+    command-chain: [bin/desktop-launch]
     command: bin/sommelier winetricks
     plugs:
       - network
@@ -87,7 +111,7 @@ parts:
   sommelier:
     plugin: make
     source: https://github.com/mmtrt/sommelier-core.git
-    source-branch: "tmp-core22"
+    source-branch: "new-core22"
 
   #fix-up-font:
     #plugin: nil
