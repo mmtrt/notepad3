@@ -58,6 +58,12 @@ apps:
     command-chain: [bin/desktop-launch]
     command: bin/sommelier run-exe
     plugs:
+      - shmem
+      - desktop
+      - desktop-legacy
+      - wayland
+      - x11
+      - gsettings
       - opengl
       - home
       - network
@@ -75,6 +81,13 @@ apps:
     command-chain: [bin/desktop-launch]
     command: bin/sommelier
     plugs:
+      - shmem
+      - desktop
+      - desktop-legacy
+      - wayland
+      - x11
+      - gsettings
+      - opengl
       - home
       - network
       - hardware-observe
