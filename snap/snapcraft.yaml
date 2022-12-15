@@ -44,6 +44,7 @@ plugs:
     default-provider: wine-platform-7-devel-core22
 
 environment:
+  LD_LIBRARY_PATH: $SNAP/wine-runtime/usr/lib/i386-linux-gnu:$SNAP/wine-runtime/lib/i386-linux-gnu${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
   WINEDLLOVERRIDES: "mscoree,mshtml=" # Prevent pop-ups about Wine Mono and Wine Gecko
   RUN_EXE: "$SNAP_USER_DATA/notepad3/notepad3.exe"
   SOMMELIER_KEEP_CWD: "1" # Don't change the working directory so relative paths still work
