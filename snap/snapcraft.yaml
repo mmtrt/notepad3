@@ -13,10 +13,6 @@ base: core22
 compression: lzo
 
 plugs:
-  gaming-mesa:
-    interface: content
-    target: $SNAP/graphics
-    default-provider: gaming-graphics-core22
   gtk-3-themes:
     interface: content
     target: $SNAP/share/themes
